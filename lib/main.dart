@@ -20,9 +20,10 @@ class MyApp extends StatelessWidget {
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
       ),
-      home: CategoryScreen(),
+      // home: CategoryScreen(),
       routes: {
-     '/category-meal': (ctx) => CategoryMealScreen(),
+        '/': (ctx) => CategoryScreen(),
+        CategoryMealScreen.routeName: (ctx) => CategoryMealScreen(),
       },
     );
   }
