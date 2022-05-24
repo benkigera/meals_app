@@ -12,6 +12,7 @@ class CategoryScreen extends StatelessWidget {
         title: const Text('Meal App'),
       ),
       body: GridView(
+        padding: const EdgeInsets.all(25),
 
         //returns a category item as widgets
         children: DUMMY_CATEGORIES
