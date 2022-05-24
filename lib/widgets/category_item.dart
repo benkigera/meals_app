@@ -3,10 +3,11 @@ import 'package:meals_app/widgets/category_meals_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   //values being passed
+  final String id;
   final String title;
   final Color color;
 
-  CategoryItem(this.title, this.color);
+  CategoryItem(this.id, this.title, this.color);
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +32,12 @@ class CategoryItem extends StatelessWidget {
   }
 
   void selectCategory(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return CategoryMealScreen();
-    }));
+    Navigator.of(context).pushNamed(
+      '/category-meal',
+      arguments: {
+        'id': id,
+        'title': title,
+      },
+    );
   }
 }

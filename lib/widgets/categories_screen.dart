@@ -3,7 +3,7 @@ import 'package:meals_app/widgets/category_item.dart';
 import 'package:meals_app/models/dummy_data.dart';
 
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({Key key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +18,7 @@ class CategoryScreen extends StatelessWidget {
         children: DUMMY_CATEGORIES
             .map(
               (catData) => CategoryItem(
+                catData.id,
                 catData.title,
                 catData.color,
               ),
