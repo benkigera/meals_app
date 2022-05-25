@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Deli Meals',
       theme: ThemeData(
         primarySwatch: Colors.pink,
-        accentColor: Colors.amber,
+        accentColor: Colors.lightBlueAccent,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
       ),
