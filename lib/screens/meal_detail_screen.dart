@@ -9,7 +9,10 @@ class MealDetailScreen extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 20),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.titleSmall,
+        style: Theme
+            .of(context)
+            .textTheme
+            .titleSmall,
       ),
     );
   }
@@ -28,7 +31,10 @@ class MealDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mealId = ModalRoute.of(context).settings.arguments as String;
+    final mealId = ModalRoute
+        .of(context)
+        .settings
+        .arguments as String;
     final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == mealId);
     return Scaffold(
         appBar: AppBar(
@@ -50,8 +56,11 @@ class MealDetailScreen extends StatelessWidget {
               buildSectionTitle(context, 'Ingredients'),
               buildContainer(ListView.builder(
                   itemCount: selectedMeal.ingredients.length,
-                  itemBuilder: (context, index) => Card(
-                        color: Theme.of(context).accentColor,
+                  itemBuilder: (context, index) =>
+                      Card(
+                        color: Theme
+                            .of(context)
+                            .accentColor,
                         child: Padding(
                             padding: EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 10),
@@ -61,21 +70,27 @@ class MealDetailScreen extends StatelessWidget {
               buildContainer(
                 ListView.builder(
                   itemCount: selectedMeal.steps.length,
-                  itemBuilder: (context, index) => Column(
-                    children: [
-                      ListTile(
-                        leading: CircleAvatar(
-                          child: Text('# ${(index + 1)}'),
-                        ),
-                        title: Text(selectedMeal.steps[index]),
+                  itemBuilder: (context, index) =>
+                      Column(
+                        children: [
+                          ListTile(
+                            leading: CircleAvatar(
+                              child: Text('# ${(index + 1)}'),
+                            ),
+                            title: Text(selectedMeal.steps[index]),
+                          ),
+                          Divider(),
+                        ],
                       ),
-                      Divider(),
-                    ],
-                  ),
                 ),
               ),
             ],
           ),
-        ));
+        ),
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.delete), onPressed: () {
+          Navigator.of(context).pop(mealId);
+        })
+    );
   }
 }
